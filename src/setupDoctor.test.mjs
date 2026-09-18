@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import {
@@ -16,6 +16,17 @@ import {
 } from '../scripts/setup-doctor.mjs';
 
 const credential = (name) => CREDENTIALS.find((spec) => spec.name === name);
+
+test('.env.example contains an active blank entry for every doctor credential', () => {
+  const example = readFileSync(new URL('../.env.example', import.meta.url), 'utf8');
+  for (const { name } of CREDENTIALS) {
+    assert.match(
+      example,
+      new RegExp(`^${name}=`, 'm'),
+      `${name} should be listed as an uncommented blank assignment in .env.example`,
+    );
+  }
+});
 
 test('doctor distinguishes supported, usable EOL, and unsupported Node versions', () => {
   assert.equal(classifyNodeVersion('24.14.0').level, 'ok');
@@ -176,6 +187,7 @@ test('doctor describes the credential ladder without exposing values', () => {
   assert.doesNotMatch(report, /configured-value/);
   assert.match(report, /Cesium ion \(environment\)/);
   assert.match(report, /Launch Library 2 \(environment\)/);
+  assert.match(report, /README\.md#free-and-open-alternatives/);
 
   const pinokioReport = formatSetupReport({
     ready: true,

@@ -203,6 +203,7 @@ export function formatSetupReport(report, { readyMessage } = {}) {
     `Fires:   ${report.capabilities.fires}`,
     `Traffic: ${report.capabilities.traffic}`,
     `Missions: ${report.capabilities.missions}`,
+    'Keyless: README.md#free-and-open-alternatives lists built-in free paths and optional provider upgrades.',
     '',
     'Configured providers:',
     ...CREDENTIALS.map((spec) => {

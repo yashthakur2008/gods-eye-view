@@ -388,6 +388,12 @@ and configuration details.
 
 Six keys. Four have a free tier, and the two 🔴 ones are metered:
 
+Keyless mode is still useful. The app starts with Esri World Imagery, keyless
+terrain, public Launch Library access, anonymous/rate-limited aircraft paths,
+USGS earthquakes, Open-Meteo weather, OSM/Photon/Nominatim place fallbacks, and
+the built-in traffic simulation. The optional keys below add higher fidelity,
+quota, or paid provider features; they are not required for first launch.
+
 |     | Key             | Why                                                                                                                                                                                  | Get it                                                                                                                                                               |
 | --- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 🟡  | **Cesium ion**  | 🗺️ Google Photorealistic 3D, world terrain, and additional ion-hosted imagery stacks. The free Community plan is for eligible individual, personal/non-commercial use and has quotas | [cesium.com/ion](https://cesium.com/ion) — use a public `assets:read` token and check current [pricing/eligibility](https://cesium.com/platform/cesium-ion/pricing/) |
@@ -409,6 +415,19 @@ _What the TomTom key buys you: rush-hour density painted on the city — then di
 | 🟡  | **Launch Library 2** | 🚀 Higher space-missions request allowance (🟢 works without) | [thespacedevs.com](https://thespacedevs.com)       |
 
 Add these if you need higher polling allowances.
+
+### Free and open alternatives
+
+| Capability | Built-in keyless/free path | Notes |
+| --- | --- | --- |
+| 🗺️ Basemap | Esri World Imagery, OSM map tray | No key required; Google/Cesium add higher-fidelity 3D and terrain. |
+| 📍 Place search | Photon + Nominatim fallback | Free public services have fair-use limits and lower POI coverage than Google. |
+| ✈️ Flights | Anonymous/rate-limited OpenSky plus bounded adsb.lol fallback | OpenSky credentials improve quota; adsb.lol coverage depends on community feeds. |
+| 🚦 Traffic | Built-in OSM-based simulation | TomTom adds live flow tiles; the simulation remains available without a key. |
+| 🚀 Space missions | Public Launch Library 2 access | Token only raises allowance. |
+| 🌎 Earthquakes/weather/news | USGS, Open-Meteo, public RSS/GDELT paths | Available without paid provider keys, subject to each public source's terms. |
+| 🎙️ Voice/HUD AI | No local provider is wired today | `OPENAI_API_KEY` powers the current voice path. Local LLM/STT/TTS stacks such as Ollama, Whisper.cpp/faster-whisper, Piper, Kokoro, or system voices are plausible future integrations, not current drop-in replacements. |
+| 🏙️ Photorealistic 3D | No open global Google-equivalent fallback | OSM buildings, MapLibre/Protomaps, local DEMs, or Cesium's free tier can help, but they are not the same as global Google Photorealistic 3D Tiles. |
 
 `npm run doctor` reports Node/npm readiness, the primary provider routes, and
 where each configured provider was found without printing credential values.
