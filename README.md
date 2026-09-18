@@ -423,7 +423,10 @@ Add these if you need higher polling allowances.
 | 🗺️ Basemap | Esri World Imagery, OSM map tray | No key required; Google/Cesium add higher-fidelity 3D and terrain. |
 | 📍 Place search | Photon + Nominatim fallback | Free public services have fair-use limits and lower POI coverage than Google. |
 | ✈️ Flights | Anonymous/rate-limited OpenSky plus bounded adsb.lol fallback | OpenSky credentials improve quota; adsb.lol coverage depends on community feeds. |
+| 🚢 Vessels | No live AIS fallback is bundled | `AISSTREAM_API_KEY` enables the live vessel layer. Regional public AIS feeds may be possible future source packs, but coverage and terms vary. |
+| 🔥 Fires | NASA FIRMS free map key | FIRMS is free but still requires `FIRMS_MAP_KEY`; without it the layer reports KEY REQUIRED instead of silently showing stale fires. |
 | 🚦 Traffic | Built-in OSM-based simulation | TomTom adds live flow tiles; the simulation remains available without a key. |
+| 📷 CCTV | Bundled public camera catalogs | Camera packs load from public agency catalogs; Google Street View fallback uses an optional server-side Google key. |
 | 🚀 Space missions | Public Launch Library 2 access | Token only raises allowance. |
 | 🌎 Earthquakes/weather/news | USGS, Open-Meteo, public RSS/GDELT paths | Available without paid provider keys, subject to each public source's terms. |
 | 🎙️ Voice/HUD AI | No local provider is wired today | `OPENAI_API_KEY` powers the current voice path. Local LLM/STT/TTS stacks such as Ollama, Whisper.cpp/faster-whisper, Piper, Kokoro, or system voices are plausible future integrations, not current drop-in replacements. |

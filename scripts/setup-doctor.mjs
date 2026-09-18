@@ -210,7 +210,7 @@ export function formatSetupReport(report, { readyMessage } = {}) {
       const state = report.credentials[spec.name];
       return state.configured
         ? `  [OK] ${spec.label} (${state.source})`
-        : `  [--] ${spec.label}`;
+        : `  [--] ${spec.label} (${spec.name})`;
     }),
     '',
     report.ready

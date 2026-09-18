@@ -187,7 +187,10 @@ test('doctor describes the credential ladder without exposing values', () => {
   assert.doesNotMatch(report, /configured-value/);
   assert.match(report, /Cesium ion \(environment\)/);
   assert.match(report, /Launch Library 2 \(environment\)/);
+  assert.match(report, /AISStream vessels \(AISSTREAM_API_KEY\)/);
+  assert.match(report, /NASA FIRMS fires \(FIRMS_MAP_KEY\)/);
   assert.match(report, /README\.md#free-and-open-alternatives/);
+  assert.doesNotMatch(report, /OpenAI voice \(dotenv files\).*OPENAI_API_KEY/s);
 
   const pinokioReport = formatSetupReport({
     ready: true,
