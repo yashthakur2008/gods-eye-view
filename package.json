@@ -150,6 +150,10 @@
     "./aircraft": "./src/layers/aircraft/index.js",
     "./layers/vessels": "./src/layers/vessels/index.js",
     "./layers/earthquakes": "./src/layers/earthquakes/index.js",
+    "./layers/global-hazards": "./src/layers/globalHazards/index.js",
+    "./server/providers/global-hazards": {
+      "node": "./server/providers/global-hazards.js"
+    },
     "./sources/firms-csv": "./src/data/firmsCsv.js",
     "./layers/firms": "./src/layers/firms/index.js",
     "./layers/satellites": "./src/layers/satellites/index.js",

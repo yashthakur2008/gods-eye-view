@@ -132,6 +132,15 @@
     "modules": ["server/providers/firms.js", "src/data/firmsCsv.js"],
     "external": []
   },
+  "global-hazards-provider": {
+    "runtime": "node",
+    "exports": ["./server/providers/global-hazards"],
+    "modules": [
+      "server/providers/global-hazards.js",
+      "server/providers/global-hazards/gdacs.js"
+    ],
+    "external": []
+  },
   "gbfs-provider": {
     "runtime": "node",
     "exports": ["./server/providers/gbfs"],
@@ -828,6 +837,14 @@
     ],
     "external": ["cesium"]
   },
+  "global-hazards-layer": {
+    "exports": ["./layers/global-hazards"],
+    "modules": [
+      "src/layers/globalHazards/index.js",
+      "src/layers/globalHazards/source.js"
+    ],
+    "external": ["cesium"]
+  },
   "fire-layer": {
     "exports": ["./layers/firms"],
     "modules": [
@@ -1226,6 +1243,7 @@
       "src/app/layers/cctv.js",
       "src/app/layers/earthquakes.js",
       "src/app/layers/firms.js",
+      "src/app/layers/globalHazards.js",
       "src/app/layers/flights.js",
       "src/app/layers/militaryAwareness.js",
       "src/app/layers/militaryFlights.js",
@@ -1286,6 +1304,7 @@
       "src/data/detectionPresentation.js",
       "src/data/detectionRenderDemand.js",
       "src/data/earthquakes.js",
+      "src/data/globalHazards.js",
       "src/data/fireAnchors.js",
       "src/data/firmsAdapt.js",
       "src/data/firmsHeatmap.js",
@@ -1422,6 +1441,8 @@
       "src/layers/earthquakes/index.js",
       "src/layers/earthquakes/model.js",
       "src/layers/earthquakes/source.js",
+      "src/layers/globalHazards/index.js",
+      "src/layers/globalHazards/source.js",
       "src/layers/firms/anchors.js",
       "src/layers/firms/cards.js",
       "src/layers/firms/index.js",
@@ -1844,6 +1865,7 @@
       "src/app/layers/cctv.js",
       "src/app/layers/earthquakes.js",
       "src/app/layers/firms.js",
+      "src/app/layers/globalHazards.js",
       "src/app/layers/flights.js",
       "src/app/layers/militaryAwareness.js",
       "src/app/layers/militaryFlights.js",
@@ -1984,6 +2006,8 @@
       "src/layers/earthquakes/index.js",
       "src/layers/earthquakes/model.js",
       "src/layers/earthquakes/source.js",
+      "src/layers/globalHazards/index.js",
+      "src/layers/globalHazards/source.js",
       "src/layers/firms/anchors.js",
       "src/layers/firms/cards.js",
       "src/layers/firms/index.js",
@@ -2499,6 +2523,7 @@
       "src/sources/reference.js",
       "src/layers/earthquakes/source.js",
       "src/layers/earthquakes/records.js",
+      "src/layers/globalHazards/source.js",
       "src/layers/submarineCables/bundledSource.js"
     ],
     "external": []
